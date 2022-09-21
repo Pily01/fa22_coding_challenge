@@ -30,4 +30,9 @@ app.post('/create', async (req, res) => {
     res.json(task)
 })
 
+app.delete("/delete/:id", async (req, res) => {
+    const task = await Task.findByIdAndDelete(req.params.id);
+    res.json(task);
+})
+
 app.listen(8080, () => console.log("Server Started on Port 8080"));
