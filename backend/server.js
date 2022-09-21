@@ -26,8 +26,7 @@ app.post('/create', async (req, res) => {
     const task = new Task({
         text: req.body.text,
     });
-    task.save()
-
+    await task.save()
     res.json(task)
 })
 
