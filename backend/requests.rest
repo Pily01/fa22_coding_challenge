@@ -6,5 +6,11 @@ POST http://localhost:8080/create
 Content-Type: application/json
 
 {
-    "text": "Get the milk"
+    "text": "Walk Bepo"
 }
+
+###
+DELETE http://localhost:8080/delete/632b7fa20ca8c58cac754d69
+
+###
+PUT http://localhost:8080/complete/632b7f2b0ca8c58cac754d66
