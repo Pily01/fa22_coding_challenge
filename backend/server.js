@@ -35,4 +35,11 @@ app.delete("/delete/:id", async (req, res) => {
     res.json(task);
 })
 
+app.put("/complete/:id", async (req, res) => {
+    const task = await Task.findById(req.params.id);
+    task.complete = !task.complete;
+    await task.save();
+    res.json(task);
+})
+
 app.listen(8080, () => console.log("Server Started on Port 8080"));
