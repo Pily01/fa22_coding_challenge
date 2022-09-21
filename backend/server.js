@@ -15,4 +15,20 @@ mongoose.connect("mongodb://127.0.0.1:27017/task",{
 .then(() => console.log("Connected to DB"))
 .catch(console.error)
 
+const Task = require("./models/Task");
+
+app.get('/', async (req, res)  => {
+    const tasks = await Task.find();
+    res.json(tasks)
+})
+
+app.post('/create', async (req, res) => {
+    const task = new Task({
+        text: req.body.text,
+    });
+    task.save()
+
+    res.json(task)
+})
+
 app.listen(8080, () => console.log("Server Started on Port 8080"));
