@@ -63,7 +63,7 @@ h4 {
   transition: 0.4s;
 }
 
-.task.complete .text{
+.complete .text{
   text-decoration: line-through;
 }
 
