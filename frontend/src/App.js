@@ -60,6 +60,8 @@ function App() {
           </div>
         ))}  
       </div>
+
+      <div className='addPopup' onClick={()=> setPopupActive(true)}>+</div>
     </div>
     
   );
