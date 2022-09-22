@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "../styles/TaskList.css"
 
 const API_PORT = "http://localhost:8080";
 
@@ -68,11 +69,11 @@ function TaskList() {
 
       <div className='tasks'>
         {tasks.map (task => (
-          <div className="task" key={task._id}>
+          <div className={"task " + (task.complete ? "complete" : "")}
+          onClick={()=> completeTask(task._id)}
+          key={task._id}>
             <div className="checkbox"></div>
-            <div className={"text " + (task.complete ? "complete" : "")}
-                 onClick={()=> completeTask(task._id)}
-            >{ task.text }</div>
+            <div className="text">{ task.text }</div>
             <div className="delete-task" 
                  onClick={() => deleteTask(task._id)}>x</div>
           </div>
