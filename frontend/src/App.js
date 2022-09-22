@@ -43,6 +43,24 @@ function App() {
     ))
   }
 
+  const addTask = async () => {
+    const data = await fetch(API_PORT + "/create", 
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text: newTask
+      })
+    })
+    .then(res => res.json)
+    .catch(err => console.error("ERROR: ", err))
+
+    setTasks([...tasks, data]);
+    setPopupActive(false);
+  }
+
   return (
     <div className="App">
       <h1> Welcome! </h1>
@@ -61,7 +79,25 @@ function App() {
         ))}  
       </div>
 
-      <div className='addPopup' onClick={()=> setPopupActive(true)}>+</div>
+      <div className='addPopup' onClick={()=> setPopupActive(true)}>
+        +
+      </div>
+      
+      {popupActive ? (
+        <div className='popup'>
+          <div className='closePopup' onClick={()=> setPopupActive(false)}>
+            X
+          </div>
+          <div className='newTaskContent'>
+            <h3>New Task</h3>
+            <input type="text" className='add-Task-input'
+            onChange = {ev => setNewTask(ev.target.value)}
+            value={newTask}/>
+          </div>
+          <div className='button' onClick={addTask}>Add Task</div>
+        </div>
+
+      ) : ""}
     </div>
     
   );
