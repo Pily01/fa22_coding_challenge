@@ -33,6 +33,16 @@ function App() {
     }))
   }
 
+  const deleteTask = async (id) => {
+    const data = await fetch(API_PORT + "/delete/" + id, {method: "DELETE"})
+    .then(res => res.json())
+    .catch(err => console.error("ERROR: ", err));
+
+    setTasks(tasks => (
+      tasks.filter(task => task._id !== data._id)
+    ))
+  }
+
   return (
     <div className="App">
       <h1> Welcome! </h1>
@@ -40,10 +50,13 @@ function App() {
 
       <div className='tasks'>
         {tasks.map (task => (
-          <div className={"task " + (task.complete ? "complete" : "")} key={task._id} onClick={()=> completeTask(task._id)}>
+          <div className="task" key={task._id}>
             <div className="checkbox"></div>
-            <div className="text">{ task.text }</div>
-            <div className="delete-task">x</div>
+            <div className={"text " + (task.complete ? "complete" : "")}
+                 onClick={()=> completeTask(task._id)}
+            >{ task.text }</div>
+            <div className="delete-task" 
+                 onClick={() => deleteTask(task._id)}>x</div>
           </div>
         ))}  
       </div>
