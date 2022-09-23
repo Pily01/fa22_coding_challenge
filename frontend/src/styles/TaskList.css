@@ -40,7 +40,7 @@ h1 {
   }
 
   .task.complete .checkbox{
-    background-color: var(--primary-color);
+    background-color: var(--light-alt);
     background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
   }
   
@@ -51,12 +51,11 @@ h1 {
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
-    color: var(--light);
-    background-color: #AF1E2D;
+    color: var(--primary-color);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: none;
+    font-size: larger;
+    font-weight: bolder;
   }
   
   .addPopup{
@@ -101,6 +100,7 @@ h1 {
     color: var(--light);
     border-radius: 10px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .add-Task-input{
@@ -108,5 +108,6 @@ h1 {
     min-width: 300px;
     padding: 5px;
     border-radius: 10px;
+    margin-top: 15px;
   }
 

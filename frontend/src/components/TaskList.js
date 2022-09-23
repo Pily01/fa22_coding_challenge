@@ -45,8 +45,7 @@ function TaskList() {
   }
 
   const addTask = async () => {
-    const data = await fetch(API_PORT + "/create", 
-    {
+    const data = await fetch(API_PORT + "/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -54,18 +53,17 @@ function TaskList() {
       body: JSON.stringify({
         text: newTask
       })
-    })
-    .then(res => res.json)
-    .catch(err => console.error("ERROR: ", err))
+    }).then(res => res.json);
 
     setTasks([...tasks, data]);
     setPopupActive(false);
+    setNewTask("");
   }
 
   return (
     <div className="App">
-      <h1> Welcome! </h1>
-      <h4> These Are Your Tasks</h4>
+      <h1> Welcome Back! </h1>
+      <h2> These Are Your Tasks</h2>
 
       <div className='tasks'>
         {tasks.map (task => (
@@ -73,9 +71,10 @@ function TaskList() {
           onClick={()=> completeTask(task._id)}
           key={task._id}>
             <div className="checkbox"></div>
-            <div className="text">{ task.text }</div>
-            <div className="delete-task" 
-                 onClick={() => deleteTask(task._id)}>x</div>
+            <p className="text">{ task.text }</p>
+            <button className="delete-task" 
+                 onClick={() => deleteTask(task._id)}>x
+            </button>
           </div>
         ))}  
       </div>
@@ -87,7 +86,7 @@ function TaskList() {
       {popupActive ? (
         <div className='popup'>
           <div className='closePopup' onClick={()=> setPopupActive(false)}>
-            X
+            <i class="fas fa-times-circle"></i>
           </div>
           <div className='newTaskContent'>
             <h3>New Task</h3>
@@ -95,7 +94,7 @@ function TaskList() {
             onChange = {ev => setNewTask(ev.target.value)}
             value={newTask}/>
           </div>
-          <div className='button' onClick={addTask}>Add Task</div>
+          <button className='add-button' onClick={addTask}>Add Task</button>
         </div>
 
       ) :""}
