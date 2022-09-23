@@ -1,17 +1,17 @@
 :root {
-  --primary-color: #D81E5B;
+  --primary-color: #EE6C4D;
   --secondary-color: #8A4EFC;
-  --light: #EEE;
-  --light-alt: #61759b;
-  --dark: #131A26;
-  --dark-alt: #202B3E;
+  --light: #effbfc;
+  --light-alt: #f1c75f;
+  --dark: #3D5A80;
+  --dark-alt: #293241;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body{

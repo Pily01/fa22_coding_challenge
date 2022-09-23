@@ -1,30 +1,28 @@
 h1 {
     font-size: 40px;
     font-weight: 700;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
   
-  h4 {
-    font-size: 18px;
+  h2 {
     color: var(--light-alt);
-    text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 16px;
+    margin-bottom: 55px;
   }
   
   .task {
     position: relative;
-    background-color: var(--dark);
+    background-color: var(--primary-color);
     padding: 16px;
     border-radius: 16px;
     display: flex;
     align-items: center;
     transition: 0.5s;
     margin-bottom: 16px;
+    font-weight: bold;
   }
   
   .task:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
   }
   
